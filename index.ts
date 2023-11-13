@@ -16,9 +16,10 @@ const users = db.collection('users')
 
 client.connect()
 
+const PORT = process.env.PORT || 8080
 
 //3. Listen on port
-app.listen(process.env.PORT, () => console.log(`App is listening on port 8080`))
+app.listen(PORT, () => console.log(`App is listening on port 8080`))
 //4. Create a get endpoint
 app.get('/', async (req, res) => {
     const allUsers = await users.find().toArray()
